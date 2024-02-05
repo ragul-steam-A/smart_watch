@@ -1,0 +1,40 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+    font-family: 'Poppins';
+    font-weight: 700; 
+
+}
+
+.homepage{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.text {
+  width: 50%;
+  height: 100vh;
+  font-size: 4vw;
+  background-color: rgb(39, 89, 164);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.watch {
+  width: 50%;
+  height: 100vh;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.watch img{
+  height: 50%;
+}
