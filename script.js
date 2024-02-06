@@ -5,19 +5,29 @@ document.getElementById("spotify").style.display = "none";
 document.getElementById("timer").style.display = "none";
 document.getElementById("display_message").style.display = "none";
 
-var city = "ohio";
-var weatherData;
+var latitude;
+var longitude;
+var city = "Coimbatore";
+navigator.geolocation.getCurrentPosition(function (position) {
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
+});
 async function getWeather() {
   const data = await fetch(`
     https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=87cfbc9449359a5449b017e2d4c55013`);
+  const dataofWeather = await fetch(
+    `https://openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02`
+  );
 
   weatherData = await data.json();
-  const iconId = weatherData.weather[0].icon;
+  weatherIcon = await dataofWeather.json();
+
+  const iconId = weatherIcon.daily[0].weather[0].icon;
   const iconUrl = `http://openweathermap.org/img/w/${iconId}.png`;
-  document.querySelector(".weatherIcon").src = iconUrl;
+  document.querySelector(".weatherNow").src = iconUrl;
 }
 
-getWeather();
+setInterval(getWeather(), 1000);
 function padWithZero(number) {
   return String(number).padStart(2, "0");
 }
