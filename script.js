@@ -5,7 +5,7 @@ document.getElementById("spotify").style.display = "none";
 document.getElementById("timer").style.display = "none";
 document.getElementById("display_message").style.display = "none";
 
-var city = "coimbatore";
+var city = "ohio";
 var weatherData;
 async function getWeather() {
   const data = await fetch(`

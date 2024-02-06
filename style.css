@@ -144,3 +144,14 @@
 .stopwatch{
   font-size: 33px;
 }
+.weather{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather img{
+  width: 30px;
+  height: 30px;
+  /* background: white; */
+}
