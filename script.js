@@ -3,21 +3,39 @@ let weatherApiKey = "L7hWQsguVPFfTDccP7xDDYk7RHOximno";
 document.getElementById("message").style.display = "none";
 document.getElementById("spotify").style.display = "none";
 document.getElementById("timer").style.display = "none";
+document.getElementById("display_message").style.display = "none";
+
+var city = "coimbatore";
+var weatherData;
+async function getWeather() {
+  const data = await fetch(`
+    https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=87cfbc9449359a5449b017e2d4c55013`);
+
+  weatherData = await data.json();
+  const iconId = weatherData.weather[0].icon;
+  const iconUrl = `http://openweathermap.org/img/w/${iconId}.png`;
+  document.querySelector(".weatherIcon").src = iconUrl;
+}
+
+getWeather();
+function padWithZero(number) {
+  return String(number).padStart(2, "0");
+}
 
 function display(value) {
   document.getElementById("home").style.display = "none";
   document.getElementById("message").style.display = "none";
   document.getElementById("spotify").style.display = "none";
   document.getElementById("timer").style.display = "none";
+  document.getElementById("display_message").style.display = "none";
   document.getElementById(value).style.display = "flex";
   document.getElementById(value).style.flexDirection = "column";
   document.getElementById(value).style.alignItems = "center";
   if (value == "timer") {
     document.getElementById(value).style.justifyContent = "space-around";
   }
-  if(value=='spotify')
-  {
-    document.getElementById(value).style.display='block';
+  if (value == "spotify") {
+    document.getElementById(value).style.display = "block";
   }
 }
 let min = document.getElementById("min");
@@ -39,14 +57,17 @@ function start() {
       }
       if (s > 60) {
         m++;
-        s = 0 ;
+        s = 0;
       }
-      min.innerHTML = m;
-      sec.innerHTML = s;
-      ms.innerHTML = ml;
+      min.innerHTML = padWithZero(m);
+      sec.innerHTML = padWithZero(s);
+      ms.innerHTML = padWithZero(ml);
     }, 10);
     flag = !flag;
   } else {
+    m = padWithZero(m);
+    s = padWithZero(s);
+    ml = padWithZero(ml);
     clearInterval(interval);
     document.getElementById("lap").innerHTML = m + ":" + s + ":" + ml;
     flag = !flag;
@@ -54,14 +75,17 @@ function start() {
 }
 
 function stop() {
+  if (flag != false) {
+    return;
+  }
   clearInterval(interval);
   flag = !flag;
 }
 
 function reset() {
-  m = 0;
-  s = 0;
-  ml = 0;
+  m = "00";
+  s = "00";
+  ml = "00";
   min.innerHTML = m;
   sec.innerHTML = s;
   ms.innerHTML = ml;
@@ -91,3 +115,11 @@ setInterval(() => {
   ];
   document.getElementById("day").innerHTML = week[now.getDay()];
 }, 10);
+
+function messageDisplay() {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("message").style.display = "none";
+  document.getElementById("spotify").style.display = "none";
+  document.getElementById("timer").style.display = "none";
+  document.getElementById("display_message").style.display = "block";
+}

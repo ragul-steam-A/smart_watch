@@ -87,6 +87,7 @@
   margin: 10px 15px;
 }
 
+
 .spotify {
   width: 230px;
   height: 250px;
@@ -104,9 +105,25 @@
   height: 75%;
   width: 100%;
   background: white;
+  border-radius: 0px 20px 20px 20px;
 }
 
+.display_message {
+  height: 75%;
+  width: 80%;
+  background: white;
+  border-radius: 0px 20px 20px 20px;
+}
+
+.display_message p{
+ color: black;
+ overflow: scroll;
+ scrollbar-width: none;
+}
+
+
 .message_content {
+  width: 100%;
   overflow: scroll;
   scrollbar-width: none;
   color: black;
@@ -114,5 +131,16 @@
 }
 
 .message_content p {
-  margin: 20px;
+  margin: 10px;
+  font-size: 13px;
+}
+
+.lap{
+  font-weight: 400;
+  color: #959595;
+  font-size: 30px;
+}
+
+.stopwatch{
+  font-size: 33px;
 }

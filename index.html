@@ -32,18 +32,26 @@
             </div>
             <div class="message" id="message">
               <div class="message_content">
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
-                <p>Ragul</p>
+                <p onclick="messageDisplay()">Ragul</p>
+                <hr />
+                <p onclick="messageDisplay()">Arun</p>
+                <hr />
+                <p onclick="messageDisplay()">Prasanth</p>
+                <hr />
+                <p onclick="messageDisplay()">Aswath</p>
+                <hr />
+                <p onclick="messageDisplay()">Jai</p>
+                <hr />
+                <p onclick="messageDisplay()">Sandeep</p>
+                <hr />
+                <p onclick="messageDisplay()">Keerthi</p>
+                <hr />
+                <p onclick="messageDisplay()">Ramya</p>
+                <hr />
               </div>
+            </div>
+            <div class="display_message" id="display_message">
+              <p>Your Order IDC5421 is Delivered</p>
             </div>
             <div class="spotify" id="spotify">
               <iframe
@@ -53,19 +61,19 @@
               ></iframe>
             </div>
             <div class="timer" id="timer">
-              <h1>
+              <h1 class="stopwatch">
                 <span id="min">00</span>:<span id="sec">00</span>:<span id="ms"
                   >00</span
                 >
               </h1>
-              <h6 id="lap">00:00:00</h6>
+              <h6 class="lap" id="lap">00:00:00</h6>
               <div class="controls">
                 <img src="assets/refresh.png" alt="" onclick="reset()" />
                 <img src="assets/play.jpeg" alt="" onclick="start()" />
                 <img
-                  src="assets/ri--stop-fill (1).svg"
+                  src="assets/stop.png"
                   alt=""
-                  style="background: white"
+                  class="stop"
                   onclick="stop()"
                 />
               </div>
