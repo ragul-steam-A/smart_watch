@@ -3,7 +3,6 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "Poppins";
-  overflow: hidden;
 }
 
 .homepage {
@@ -159,10 +158,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: scroll;
   }
-
-  .text{
-    background-color: white;
+  
+  .text {
+    width: 100%;
+    height: 50vh;
   }
 
   .watch{
