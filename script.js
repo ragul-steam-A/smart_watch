@@ -1,4 +1,5 @@
 let weatherApiKey = "L7hWQsguVPFfTDccP7xDDYk7RHOximno";
+let cnt = 0;
 
 document.getElementById("message").style.display = "none";
 document.getElementById("spotify").style.display = "none";
@@ -41,6 +42,7 @@ function display(value) {
   document.getElementById(value).style.display = "flex";
   document.getElementById(value).style.flexDirection = "column";
   document.getElementById(value).style.alignItems = "center";
+  cnt = 0;
   if (value == "timer") {
     document.getElementById(value).style.justifyContent = "space-around";
   }
@@ -58,6 +60,7 @@ let ml = 0;
 let interval;
 let flag = true;
 function start() {
+  cnt = 0;
   if (flag) {
     interval = setInterval(() => {
       ml++;
@@ -85,6 +88,7 @@ function start() {
 }
 
 function stop() {
+  cnt = 0;
   if (flag != false) {
     return;
   }
@@ -93,6 +97,7 @@ function stop() {
 }
 
 function reset() {
+  cnt = 0;
   m = "00";
   s = "00";
   ml = "00";
@@ -127,9 +132,22 @@ setInterval(() => {
 }, 10);
 
 function messageDisplay() {
+  cnt = 0;
   document.getElementById("home").style.display = "none";
   document.getElementById("message").style.display = "none";
   document.getElementById("spotify").style.display = "none";
   document.getElementById("timer").style.display = "none";
   document.getElementById("display_message").style.display = "block";
+}
+
+function unlock() {
+  document.getElementById("unlock").style.display = "none";
+
+  setInterval(() => {
+    if (cnt == 30) {
+      document.getElementById("unlock").style.display = "block";
+      cnt = 0;
+    }
+    cnt++;
+  }, 1000);
 }
