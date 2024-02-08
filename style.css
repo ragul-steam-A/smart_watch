@@ -153,6 +153,11 @@
   height: 30px;
 }
 
+hr{
+  width: 80%;
+  margin-left:10px ;
+}
+
 @media screen and (max-width:540px){
   .homepage{
     display: flex;
